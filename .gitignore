@@ -73,4 +73,3 @@ soccer_dev
 yarn-debug.log*
 .yarn-integrity
 db/test.sqlite3
-db/development.sqlite3

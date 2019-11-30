@@ -1,0 +1,145 @@
+@import 'variables';
+
+.form-schedule{
+
+  h1{
+    color: $white;
+  }
+
+  input.btn{
+    display: block;
+    width: 206px;
+    height: 36px!important;
+    clear: both;
+    margin: 0 auto;
+  }
+
+  div label input {
+    margin-right: 100px;
+  }
+
+  #ck-button {
+    margin: 4px;
+    background-color: $white;
+    border-radius: 4px;
+    overflow: auto;
+    float: left;
+    label{
+      margin: 0;
+      width: auto;
+      float: left;
+      span{
+        line-height: 30px;
+        width: 140px;
+        height: 35px;
+        text-align: center;
+        padding: 3px 0px;
+        display: block;
+      }
+      input{
+        display: none;
+      }
+    }
+    input:checked + span {
+      background-color: $green-checked;
+      color: $white;
+    }
+  }
+
+  #ck-button.taken{
+    span{
+      background: $dark-red;
+      cursor: not-allowed;
+    }
+  }
+
+  #ck-button.pasttime{
+    span{
+      cursor: not-allowed;
+    }
+  }
+
+  #ck-button.availble{
+    span{
+      background: $green;
+    }
+  }
+
+  #ck-button.availble:not(.pasttime){
+    input:hover + span {
+      background-color: $green-hover;
+    }
+  }
+
+  h1{
+    letter-spacing: 0px;
+    font-weight: 500;
+  }
+
+  p{
+    text-align: center!important;
+  }
+
+  .schedule{
+    input.button{
+      line-height: 36px;
+      margin: 10px;
+      height: 50px;
+      width: 200px;
+      color: $white;
+    }
+    label{
+      color: $white;
+    }
+  }
+  .p-40px{
+    padding: 40px;
+  }
+}
+
+.show-book-list{
+  top: 152px;
+  h1{
+    color: $white;
+    letter-spacing: 0px;
+    font-weight: 500;
+  }
+
+  .title{
+    padding-bottom: 38px;
+  }
+
+  table{
+    td{
+      word-break: break-word
+    }
+  }
+}
+
+.height-limit{
+  height: 237px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.style-scrollbar::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 6px $scroll_box_shadow;
+  background: transparent;
+  border-radius: 10px;
+}
+
+.style-scrollbar::-webkit-scrollbar{
+  width: 5px;
+  background: transparent;
+}
+
+.style-scrollbar::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: transparent;
+  background-image: -webkit-gradient(linear,
+                    40% 0%,
+                    75% 84%,
+                    from($from),
+                    to($to),
+                    color-stop(.6, $stop_color))
+}

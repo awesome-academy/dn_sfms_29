@@ -1,19 +1,4 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'linearicons';
-@import 'magnific-popup';
-@import 'main';
-@import 'nice-select';
-@import 'owl.carousel';
-@import 'animate.min';
 @import 'variables';
-@import 'font-awesome.min';
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 /* general */
 
@@ -140,7 +125,17 @@
 .pagination {
   margin: 0 auto;
 }
-
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.428571429;
+  color: $color_pagination;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $border_pagination;
+}
 /* general */
 
 .m-w100{
@@ -193,7 +188,7 @@
   max-width: 350px;
 }
 .h100{
-  heigth: 100px;
+  height: 100px;
 }
 .mar-l20{
   margin-left: 20px;
@@ -223,213 +218,6 @@
   }
 }
 
-/* universal */
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-.p-top-150px {
-  padding-top: 150px;
-}
-
-.p-bot-150px {
-  padding-bottom: 150px;
-}
-
-.size_avatar {
-  min-height: 150px;
-  min-width: 150px;
-}
-
-body>.alert{
-  position: absolute;
-    top: 105px;
-    z-index: 100000;
-    width: 100%;
-}
-.edit_profile{
-  h1{
-    color: $white
-  }
-}
-.user_info h1 {
-  color: $white;
-}
-/* typography */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-/* header */
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: $white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
-/* footer */
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
-
-/* miscellaneous */
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-/* sidebar */
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
-/* forms */
-.login_form{
-  p, h1 {
-    color: $white;
-  }
-}
-
-.password_reset_form {
-  h1 {
-    color: $white;
-  }
-}
-input, textarea, select, .uneditable-input {
-  border: 1px solid $bark_cloud;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
-#error_explanation {
-  color: $red;
-  background: $bg-error;
-  padding: 10px;
-  border-radius: 7px;
-  ul {
-    color: $red;
-    margin: 0 0 30px 0;
-    text-align: center;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error !optional;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
 .mar-l20{
   margin-left: 20px;
 }

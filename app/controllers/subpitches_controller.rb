@@ -7,7 +7,11 @@ class SubpitchesController < ApplicationController
     @like = current_user.likes.build subpitch_id: params[:id] if user_signed_in?
   end
 
-  def show; end
+  def show
+    @new_comment = Comment.new
+    @ratings = @subpitch.ratings
+    @comments = @subpitch.comments
+  end
 
   private
 
@@ -21,7 +25,6 @@ class SubpitchesController < ApplicationController
 
   def load_subpitch params
     @subpitch = Subpitch.find_by id: params
-
     return if @subpitch
 
     flash[:danger] = t ".subpitches.danger_load_subpitch"

@@ -7,8 +7,8 @@ User.create!({full_name: "Example User", email: "user@soccer.vn", password: "adm
   name  = Faker::Name.name
   description = Faker::Lorem.sentence
   address = Faker::Address.street_address
-  start_time = DateTime.strptime("05:30 +07:00", "%H:%M %z")
-  end_time = DateTime.strptime("23:30 +07:00", "%H:%M %z")
+  start_time = DateTime.strptime("05:59 +07:00", "%H:%M %z")
+  end_time = DateTime.strptime("23:59 +07:00", "%H:%M %z")
 
   Pitch.create!(
     name: name,
@@ -21,7 +21,7 @@ User.create!({full_name: "Example User", email: "user@soccer.vn", password: "adm
     district: Faker::Address.state,
     start_time: start_time,
     end_time: end_time,
-    limit: 2
+    limit: 1
   )
 end
 
@@ -48,6 +48,30 @@ end
 end
 
 SubpitchType.create!({name: "loai vip"})
+
+SubpitchType.create!({name: "Subpitch type 1", description: "Mo ta 1"})
+
+pitches = Pitch.order(created_at: :desc).take(3)
+pitches.each{|pitch|
+  5.times do |n|
+    name = Faker::Name.name
+    desc = Faker::Lorem.sentence
+    price = 1000000
+    size = "5 người"
+    pitch.subpitches.create!({
+      subpitch_type_id: 1,
+      name: name,
+      description: desc,
+      price_per_hour: price,
+      currency: "VND",
+      size: size,
+      status: Faker::Number.between(from: 0, to: 1)
+    })
+  end
+}
+
+subpitches = Subpitch.all
+subpitches.each{|subpitch|
 
 SubpitchType.create!({name: "Subpitch type 1", description: "Mo ta 1"})
 
@@ -114,30 +138,5 @@ end
     size: size,
     status: Faker::Number.between(from: 0, to: 1)
   })
-end
-
-
-50.times do |n|
-  name = "Subpitch _ #{n}"
-  Subpitch.create!({name: name, description: "mo ta 1",status: 0,pitch_id: 1,price_per_hour: 30000, currency: "Dong", size: "5 nguoi", subpitch_type_id: 1, created_at: Time.now, updated_at: Time.now})
-end
-
-
-10.times do |n|
-  name = "Subpitch _ #{n}"
-  Subpitch.create!({name: name, description: "mo ta 1",status: 0,pitch_id: 100,price_per_hour: 30000, currency: "Dong", size: "5 nguoi", subpitch_type_id: 1, created_at: Time.now, updated_at: Time.now})
-end
-
-
-50.times do |n|
-  Booking.create!({user_id: 1, subpitch_id: 2, start_time: Time.now, end_time: Time.now, message: "hello moi nguoi", status: 0, total_price: 50000})
-end
-
-10.times do |n|
-  Booking.create!({user_id: 1, subpitch_id: 71, start_time: Time.now, end_time: Time.now, message: "hello moi nguoi", status: 0, total_price: 50000})
-end
-
-50.times do |n|
-   Rating.create!({user_id: 3, booking_id: n+1, star: 5, content: "Very good nhe moi nguoi"})
 end
 

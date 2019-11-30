@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_190144) do
     t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "wallet", precision: 10, default: "0"
     t.index ["provider", "email"], name: "index_users_on_provider_and_email", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end

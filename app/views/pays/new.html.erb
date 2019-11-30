@@ -1,0 +1,103 @@
+<% provide :title, full_title(t ".payment") %>
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container pays">
+    <div class="row fullscreen align-items-center justify-content-between">
+        <h1 class="col-md-12 center p-top-150px"><%= t ".payment" %></h1>
+        <div class="col-md-6">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active">
+              <h1 class="center"><%= t ".info" %></h1>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".pitch" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.subpitch.pitch.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".subpitch" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.subpitch.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".address" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.subpitch.pitch.address %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".start_time" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.start_time.strftime "%H:%M %d/%m/%y" %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".end_time" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.end_time.strftime "%H:%M %d/%m/%y" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <h1 class="center"><%= t ".billing_info" %></h1>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".wallet" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p>$ <%= current_user.wallet %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".price_hour" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p>$ <%= @booking.subpitch.price_per_hour %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".number_of_hours" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @booking.end_time.hour - @booking.start_time.hour %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".total" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p>$ <%= @booking.total_price%></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <%= link_to t(".cancel"), new_subpitch_booking_path(@booking.subpitch), class: "btn btn-primary m-2 bd-highlight" %>
+              <% if @booking.verifiled_paid? %>
+                <p class="m-2 paid-verified"><%= t ".paid" %> <span class="tick">&#9989;</span></p>
+              <% else %>
+                <%= link_to t(".pay_now"), pays_update_path(booking_id: @booking), method: :patch, class: "btn btn-primary m-2 bd-highlight" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

@@ -38,7 +38,7 @@ class Pitch < ApplicationRecord
           "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end)
   scope :active_booking, (lambda do
-    where bookings: {status: Booking.statuses["Verifiled_paid"]}
+    where bookings: {status: Booking.statuses[:verifiled_paid]}
   end)
 
   scope :order_pitch, ->(order){order(total: order) if order}

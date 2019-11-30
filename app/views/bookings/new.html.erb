@@ -1,0 +1,81 @@
+<% provide :title, t(".booking") %>
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row">
+      <% if @bookings.present? %>
+        <div class="col-md-5 p-top-150px form-schedule">
+      <% else %>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 p-top-150px form-schedule">
+      <% end %>
+          <div class="d-flex flex-column justify-content-center">
+            <h1 class="center"><%= t ".schedule" %></h1>
+            <p><%= t ".choose_suitable" %></p>
+          </div>
+          <% if @bookings.present? %>
+            <div class="schedule">
+          <% else %>
+            <div class="schedule p-40px">
+          <% end %>
+              <%= form_for :booking, url: bookings_path do |f| %>
+                <%= f.hidden_field :subpitch_id, value: @subpitch.id %>
+                <% @schedule_details.each_with_index do |box,index| %>
+                  <% if box[2] == "pasttime" %>
+                    <div id="ck-button" class="availble pasttime">
+                      <label>
+                        <%= f.check_box :"period#{index}", disabled: true %>
+                        <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
+                      </label>
+                    </div>
+                  <% elsif box[2] %>
+                    <div id="ck-button" class="taken">
+                      <label>
+                        <%= f.check_box :"period#{index}", disabled: true %>
+                        <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
+                      </label>
+                    </div>
+                  <% else %>
+                    <div id="ck-button" class="availble">
+                      <label>
+                        <%= f.check_box :"period#{index}", {}, box[0] %>
+                        <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
+                      </label>
+                    </div>
+                  <% end %>
+                <% end %>
+
+                <%= f.submit class:"btn btn-primary"%>
+              <% end %>
+            </div>
+      <% if @bookings.present? %>
+        </div>
+        <div class="col-md-7 show-book-list">
+          <div class="title">
+            <h1 class="center"><%= t ".history_booking" %></h1>
+          </div>
+          <div class="height-limit style-scrollbar">
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col"><%= t ".pitch" %></th>
+                  <th scope="col"><%= t ".subpitch" %></th>
+                  <th scope="col"><%= t ".address" %></th>
+                  <th scope="col"><%= t ".start" %></th>
+                  <th scope="col"><%= t ".end" %></th>
+                  <th width="76px"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @bookings %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <% else %>
+        </div>
+        <div class="col-md-3">
+      <% end %>
+    </div>
+  </div>
+</section>

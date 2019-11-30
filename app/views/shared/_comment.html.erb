@@ -1,0 +1,40 @@
+<div class="comment-outer">
+  <div class="comment-inner">
+    <h1><%= t ".review" %></h1>
+    <% @ratings.each do |rating| %>
+      <% user = User.find_by id: rating.user_id %>
+      <div class="group-rating">
+        <p class="new-comment">
+          <%= link_to user.full_name, user, class: "link_profile" %>
+        </p>
+        <div class="content-comment">
+          <p class="comments-rating"><%= rating.content %></p>
+          <p>
+            <span class="rating">
+              <% rating.star.times do %>
+                <i class="fa fa-star fa-1x"></i>
+              <% end %>
+            </span>
+          </p>
+        </div>
+        <div class="comment <%= rating.id %>">
+          <% @comments.by_rating(rating).each do |comment| %>
+            <p class="new-comment">
+              <%= link_to comment.user_full_name, user, class: "link_profile" %>
+            </p>
+            <div class="content-comment">
+              <p><%= comment.content %></p>
+            </div>
+          <% end %>
+        </div>
+        <span id="<%= rating.id %>" class="btn btn-primary reply"><%= t ".reply" %></span>
+        <%= form_for @new_comment, remote: true, url: comment_create_path,
+          html: {class: "form-comment", id: "form#{rating.id}"} do |f| %>
+          <%= f.hidden_field :rating_id, value: rating.id %>
+          <%= f.text_area :content, placeholder: t(".content")%>
+          <%= f.submit class: "btn btn-success submit" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

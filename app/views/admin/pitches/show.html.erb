@@ -1,5 +1,5 @@
 <% provide :title, t(".title", add: @pitch.name) %>
-<h1><%= t ".title", add: @pitch.name  %></h1>
+<h1><%= t ".title", add: @pitch.name %></h1>
 <div>
   <div class="left">
     <%= image_tag(@pitch.picture, size: Settings.size.pitch, class: "left") if @pitch.picture.attached? %>

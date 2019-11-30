@@ -21,18 +21,11 @@ vi:
               after: "phải lớn hơn giờ bắt đầu."
   helpers:
     label:
-      pitch:
-        name: "Tên"
-        description: "Mô tả"
-        country: "quốc gia"
-        city: "Thành phố"
-        district: "Quận huyện"
-        address: "Địa chỉ"
-        picture: "Hình ahr"
-        start_time: "Giờ bắt đầu"
-        end_time: "Giờ kết thúc"
-        limit: "Giới hạn giờ"
       user:
+        full_name: "Tên đầy đủ"
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_confirmation: "Nhập lại mật khẩu"
         name: Tên
         email: Email
         password: Mật khẩu
@@ -41,8 +34,20 @@ vi:
         male: Nam
         female: Nữ
       session:
-        email: Email
-        password: Mật khẩu
+        email: "Email"
+        password: "Mật khẩu"
+        danger: "Tạo tài khoản thất bại!"
+      pitch:
+        name: "Tên"
+        description: "Mô tả"
+        country: "quốc gia"
+        city: "Thành phố"
+        district: "Quận huyện"
+        address: "Địa chỉ"
+        picture: "Hình ảnh"
+        start_time: "Giờ bắt đầu"
+        end_time: "Giờ kết thúc"
+        limit: "Giới hạn giờ"
       subpitch_type:
         name: "Tên loại sân bóng"
         Description: "Mô tả"
@@ -75,11 +80,37 @@ vi:
       subpitch:
         create: "Tạo sân nhỏ"
         update: "Cập nhật sân nhỏ"
-  shared:
-    error_messages:
-      count:
-        one: "1 error"
-        other: "%{count} errors"
+      booking:
+        submit: Múc
+      comment:
+        create: Bình luận
+  activerecord:
+    attributes:
+      user:
+        full_name: Tên
+        email: Email
+        password: Mật khẩu
+        password_confirmation: Xác nhận mật khẩu
+        phone: Số điện thoại
+        wallet: Số tiền
+      comment:
+        content: Nội dung
+    errors:
+      messages:
+        record_invalid: "%{errors}"
+      models:
+        user:
+          attributes:
+            wallet:
+              greater_than_or_equal_to: không đủ(hoặc phải lớn hơn hoặc bằng 0)
+            name:
+              blank: không thể để trắng
+            phone:
+              invalid: chỉ bao gồm số và phải từ 10 kí tự trở lên
+        pitch:
+          attributes:
+            end_time:
+              after: "phải lớn hơn bắt đầu!"
   layouts:
     admin:
       sidebar:
@@ -118,13 +149,11 @@ vi:
       about: "Giới thiệu"
       blog: "Blog"
       contact: "Liên hệ"
-      language: "Ngôn ngữ"
-      english: "Tiếng Anh"
       connect_facebook: Đăng nhập qua Facebook
-      log_in: Đăng nhập
       profile: Hồ sơ
       setting: Cài đặt
       logout: Đăng xuất
+      manage: Quản lý
     right_sidebar:
       pitch: "Sân bóng"
       search_pitch: "Tìm kiếm sân"
@@ -141,7 +170,6 @@ vi:
   static_pages:
     home:
       home: Trang chủ
-      soccer_update: "Sân bóng đá được cập nhật mới nhất"
       address: "Địa chỉ: "
       pitch: "Sân bóng"
       soccer_update: "Sân bóng đá được cập nhật mới nhất"
@@ -164,7 +192,7 @@ vi:
     search_soccer:
       address: "Địa chỉ: "
     view_soccer:
-      address: "Address: "
+      address: "Địa chỉ: "
     index:
       notification: "Không có sân bóng nào hợp lệ!"
   admin:
@@ -347,12 +375,11 @@ vi:
           content: "content"
           option: "option"
   users:
+    welcome_user: "Đăng ký tài khoản thành công!"
     id_unexist: ID không tồn tại!
-    please_log_in: Vui lòng đăng nhập
-    not_allow: Bạn không được phép
+    please_log_in: Vui lòng đăng nhập!
+    not_allow: Bạn không được phép!
     new:
-      update: "Cập nhật"
-      text1: "Đăng ký"
       sign_up: Đăng kí
       title: "Đặt lịch sân bóng đá nhanh chóng"
     create:
@@ -390,11 +417,18 @@ vi:
     edit:
       account_activated: Tài khoản đã kích hoạt thành công!
       invalid_activation_link: Link kích hoạt không hợp lệ!
+  shared:
+    error_messages:
+      error: "Form có %{count} lỗi"
+    comment:
+      content: Bình luận ở đây
+      reply: Trả lời
+      review: Đánh giá
   sessions:
     new:
       sign_up: Đăng kí ngay!
       log_in: Đăng nhập
-      new_user: "Chưa có tài khoản ? "
+      new_user: "Chưa có tài khoản? "
       remember_text: Duy trì trạng thái đăng nhập
       forgot_password: (Quên mật khẩu)
     create:
@@ -434,9 +468,6 @@ vi:
       p2_password_reset: Link này hết hạn trong 2 giờ.
       p3_password_reset: Nếu bạn không yêu cầu đặt lại mật khẩu hãy bỏ qua
         email này, mật khẩu của bạn không thay đổi.
-  oversize_upload_picture: nên nhỏ hơn 5MB
-  oversize_upload: Dung lượng tệp tải lên tối đa 5MB. Vui lòng chọn tệp nhỏ hơn
-  not_allow: Bạn không được phép
   subpitches:
     danger_load: "Tải thất bại"
     danger_load_subpitch: "Tải thất bại sân nhỏ"
@@ -494,6 +525,30 @@ vi:
   will_paginate:
     previous_labels: "Trang trước"
     next_label: "Trang sau"
+  pays:
+    new:
+      payment: Thanh toán
+      info: Thông tin đặt sân
+      billing_info: Thông tin thanh toán
+      pitch: Sân
+      subpitch: Sân con
+      address: Địa chỉ
+      start_time: Giờ bắt đầu
+      end_time: Giờ kết thúc
+      wallet: Số dư hiện tại
+      price_hour: Giá mỗi giờ
+      number_of_hours: Số giờ
+      total: Tổng
+      cancel: Trở lại
+      pay_now: Thanh toán
+      please_log_in: Vui lòng đăng nhập để tiếp tục!
+      not_found: Booking không tồn tại!
+      paid: Đã thanh toán
+    update:
+      not_found: Booking không tồn tại!
+      error_process: Xảy ra lỗi khi xử lý!
+      success_payment: Thanh toán thành công
+      not_allow: Bạn không được phép!
   bookings:
     index:
       title: "Danh sách đặt sân"
@@ -505,8 +560,79 @@ vi:
       status: "Trạng thái"
       total_price: "Tổng tiền"
       option: "Lựa chọn"
+    new:
+      booking: Đặt sân bóng
+      schedule: Lịch trình
+      not_found_subpitch_id: Sân không tồn tại!
+      choose_suitable: Hãy chọn thời gian cho kế hoạch của bạn
+      history_booking: Lịch sử đặt sân
+      pitch: Khu vực
+      subpitch: Tên sân
+      address: Địa chỉ
+      start: Từ
+      end: Đến
+      to: đến
+    create:
+      please_log_in: Vui lòng đăng nhập trước khi đặt sân!
+      not_choose_or_invalid_time: Thời gian không hợp lệ, phải chọn ít nhất
+        một giai đoạn!
+      time_has_passed: Chỉ được chọn thời gian sau thời điểm hiện tại!
+      time off schedule: Sân đã đóng cửa rồi!
+      time has been taken: Thời gian này đã được ai đó đặt rồi!
+      error_insert_booking: Xảy ra lỗi trong khi xử lý!
+      success_booking: Bạn đặt sân thành công, hãy tiến hành thanh toán ngay
+        và luôn!
+      not_found_subpitch_id: Sân không tồn tại!
+      wrong_cycle_time: Sai chu kì thơi gian!
+      booking_success: Đặt sân thành công
+    update:
+      not_allow: Bạn không được phép!
+      please_log_in: Làm ơn đăng nhập để tiếp tục!
+      failed: Không thể hủy!
+      not_found: Không tồn tại booking id!
+      cancel_success: Hủy thành công rực rỡ
     booking:
+      review: Đánh giá
+      confirm: Bạn chắc chắn?
+      cancel: Hủy
+      canceled: Đã hủy
+      payment: Chờ thanh toán
       unverfile: "Chưa xác thực"
       verifiled_unpay: "Đã xác thực và chưa thanh toán"
       verifiled_paid: "Đã thanh toán và đã xác thực"
       rating: "Đánh giá"
+    booking_index:
+      rating: Đánh giá
+    ratings:
+      index:
+        title: "Đánh giá cho bookingRating for booking"
+        pitch_name_html: "Tên sân bóng: <strong>%{add}</strong>"
+        name_html: "Sân bóng nhỏ: <strong>%{add}</strong>"
+        price_html: "Giá mỗi giờ: <strong>%{add}</strong>"
+        currency_html: "đơn vị: <strong>%{add}</strong>"
+        desc_html: "Mô tả: <strong>%{add}</strong>"
+        subpitch_type_html: "Loại sân: <strong>%{add}</strong>"
+        size_html: "Kích cỡ: <strong>%{add}</strong>"
+        price_per_hour: "Giá mỗi giờ: <strong>%{add}</strong>"
+        total_price_html: "Tổng tiền: <strong>%{add}</strong>"
+      show_rating:
+        del: "Xóa"
+        edit: "Sửa"
+        content: "Nội dung"
+        star: "sao"
+      rating:
+        del: "Xóa"
+        edit: "Sửa"
+  comments:
+    create:
+      comment_success: Thành công
+      not_allow: Bạn không được phép
+      not_found_rating_id: Không tìm thấy review
+      please_log_in: Vui lòng đăng nhập để tiếp tục!
+    comment:
+      not_found_comment: Không tìm thấy bình luận
+  cant_repay: Bạn đã thanh toán trước đó rồi!
+  exist_paid_booking: Có không giữ, mất đừng tìm. Cơ hội chỉ đến 1 lần!
+  oversize_upload_picture: nên nhỏ hơn 5MB
+  oversize_upload: Dung lượng tệp tải lên tối đa 5MB. Vui lòng chọn tệp nhỏ hơn
+  not_allow: Bạn không được phép

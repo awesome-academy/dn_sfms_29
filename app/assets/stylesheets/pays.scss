@@ -1,0 +1,13 @@
+@import 'variables';
+
+.pays{
+  .paid-verified{
+    background: $green;
+    padding: 0 9px;
+    line-height: 38px;
+    color: $white;
+  }
+  h1{
+    color: $white;
+  }
+}
