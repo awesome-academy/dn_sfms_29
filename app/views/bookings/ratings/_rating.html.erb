@@ -1,0 +1,19 @@
+<%= form_for @rating, url: get_path_form(@booking) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :content %>
+  <% if params[:id] %>
+    <%= link_to t(".del"), booking_rating_path(@rating.booking_id, @rating), method: :delete, "data-confirm": t("msg.confirm"), class: "btn btn-danger right" %>
+  <% end %>
+  <%= f.text_area :content, class: "form-control" %>
+
+  <%= f.label :star %>
+  <div>
+    <%= show_rating(@rating.star, true).html_safe%>
+  </div>
+  <%= f.hidden_field :star %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="auto text-center">
+    <%= f.submit class: "wid30 auto" %>
+  </div>
+<% end %>

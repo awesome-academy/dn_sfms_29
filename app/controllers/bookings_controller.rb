@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :check_logged_in
 
   def index
     @bookings = current_user.bookings.search_name(params[:search])

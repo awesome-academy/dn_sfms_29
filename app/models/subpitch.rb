@@ -18,8 +18,6 @@ class Subpitch < ApplicationRecord
     where("name LIKE ?", "%#{subpitch}%") if subpitch
   end)
 
-  scope :by_pitch, ->(pitch_id){where pitch_id: pitch_id}
-
   scope :revenue_subpitch, (lambda do |pitch|
     joins(:bookings).where("subpitches.pitch_id = ?", pitch)
                     .select("subpitches.*, sum(bookings.total_price) as total")

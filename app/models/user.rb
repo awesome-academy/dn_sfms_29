@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :pitches, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   validates :full_name, presence: true,
     length: {maximum: Settings.name_in_users_max}

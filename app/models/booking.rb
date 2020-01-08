@@ -13,6 +13,6 @@ class Booking < ApplicationRecord
   end)
 
   scope :search_total, (lambda do |search|
-    includes(:booking).where bookings: {total_price: search} if search
+    where bookings: {total_price: search} if search
   end)
 end

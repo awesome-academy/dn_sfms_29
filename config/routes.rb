@@ -13,7 +13,9 @@ Rails.application.routes.draw do
       resources :roles, only: :create, controller: "users/roles"
     end
   end
-  resources :bookings, only: :index
+  resources :bookings, only: :index do
+    resources :ratings, except: :show, controller: "bookings/ratings"
+  end
   post "/login", to: "sessions#create"
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"

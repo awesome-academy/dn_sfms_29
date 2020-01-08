@@ -134,7 +134,7 @@ end
 end
 
 10.times do |n|
-  Booking.create!({user_id: 1, subpitch_id: 71, start_time: Time.now, end_time: Time.now, message: "hello moi nguoi", status: 0, total_price: 50000})
+  Booking.create!({user_id: 3, subpitch_id: 71, start_time: Time.now, end_time: Time.now, message: "hello moi nguoi", status: 0, total_price: 50000})
 end
 
 50.times do |n|

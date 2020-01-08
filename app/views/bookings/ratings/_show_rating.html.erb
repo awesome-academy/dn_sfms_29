@@ -1,0 +1,10 @@
+<div id="show_rating">
+  <p>
+    <%= t ".content" %>
+    <%= link_to t(".del"), booking_rating_path(@rating.booking_id, @rating, @request), method: :delete, "data-confirm": t("msg.confirm"), class: "btn btn-danger right" %>
+    <%= link_to t(".edit"), edit_booking_rating_path(@rating.booking_id, @rating), class: "btn btn-warning right", remote: true %>
+  </p>
+  <p><%= @rating.content %></p>
+  <p> <%= t ".star" %> </p>
+  <%= show_rating(@rating.star).html_safe %>
+</div>

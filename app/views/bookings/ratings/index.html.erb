@@ -1,0 +1,41 @@
+<section class="banner-area relative">
+  <div class="container pad-top150">
+    <div class="bg-green container2">
+      <% provide :title, t(".title") %>
+      <h1 class="cl-white"><%= t ".title" %></h1>
+      <div>
+        <div class = "col-sm-6 col-lg-12 pad0 wid500 auto">
+          <% if @subpitch.picture.attached? %>
+            <div class = "card-header content-center">
+              <%= image_tag @subpitch.picture, class: " image_subpitch"  %>
+            </div>
+          <% end %>
+          <div class="card-body row text-center">
+            <div class = "col">
+              <div class = "text-value-xl"><%= t ".pitch_name_html", add: @subpitch.pitch_name %></div>
+              <div class = "text-value-xl"><%= t ".name_html", add: @subpitch.name %></div>
+              <div class = "text-value-xl"><%= t ".price_per_hour_html", add: @subpitch.price_per_hour %></div>
+              <div class = "text-value-xl"><%= t ".currency_html", add: @subpitch.currency %></div>
+            </div>
+            <div class="c-vr"></div>
+            <div class = "col">
+              <div class = "text-value-xl"><%= t ".desc_html", add: @subpitch.description %></div>
+              <div class = "text-value-xl">
+                <%= t ".subpitch_type_html", add: @subpitch.subpitch_type_name %>
+              </div>
+              <div class = "text-value-xl"><%= t ".size_html", add: @subpitch.size %></div>
+              <div class = "text-value-xl"><%= t ".total_price_html", add: @booking.total_price %></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-12">
+        </div>
+        <% if params[:id].present? %>
+          <%= render "show_rating", collection: @rating %>
+        <% else %>
+          <%= render "rating", collection: @rating %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<section>
