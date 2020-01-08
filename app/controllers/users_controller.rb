@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: %i(destroy index)
 
   def index
-    @users = User.order_active.search_full_name(params[:search])
-                 .or(User.order_active.search_email(params[:search]))
+    @users = User.recently.search(params[:search])
                  .paginate page: params[:page], per_page: Settings.size.s10
   end
 
@@ -76,7 +75,7 @@ class UsersController < ApplicationController
   end
 
   def get_path
-    @link = request.referer.include?("admin") ? "admin_" : ""
+    @link = request.referer.try(:include?, "admin") ? "admin_" : ""
   end
 
   def load_layout

@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
   end
 
   def attach_avatar
-    downloaded_image = open @auth_hash.info.image.to_s
+    downloaded_image = parse(@auth_hash.info.image.to_s).open
     @user.avatar.attach io: downloaded_image,
       filename: Settings.default_avatar_name
   end

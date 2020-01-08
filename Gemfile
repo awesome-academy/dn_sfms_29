@@ -27,7 +27,10 @@ gem "will_paginate", "~> 3.1.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
   gem "mysql2", "~> 0.5.2"
+  gem "rspec-rails", git: "https://github.com/rspec/rspec-rails",
+    branch: "4-0-maintenance"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
 end
@@ -42,6 +45,7 @@ end
 group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers"
   gem "webdrivers"
 end
 

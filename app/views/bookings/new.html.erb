@@ -24,21 +24,21 @@
                   <% if box[2] == "pasttime" %>
                     <div id="ck-button" class="availble pasttime">
                       <label>
-                        <%= f.check_box :"period#{index}", disabled: true %>
+                        <%= check_box_tag :"period#{index}", box[0], false, disabled: true %>
                         <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
                       </label>
                     </div>
                   <% elsif box[2] %>
                     <div id="ck-button" class="taken">
                       <label>
-                        <%= f.check_box :"period#{index}", disabled: true %>
+                        <%= check_box_tag :"period#{index}", box[0], false, disabled: true %>
                         <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
                       </label>
                     </div>
                   <% else %>
                     <div id="ck-button" class="availble">
                       <label>
-                        <%= f.check_box :"period#{index}", {}, box[0] %>
+                        <%= check_box_tag "booking[period#{index}]", box[0] %>
                         <span><%= "#{box[0]} #{t ".to"} #{box[1]}" %></span>
                       </label>
                     </div>
