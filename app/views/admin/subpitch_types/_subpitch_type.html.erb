@@ -1,0 +1,8 @@
+<tr>
+  <td><%= subpitch_type.name %> </td>
+  <td><%= subpitch_type.description %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_subpitch_type_path(subpitch_type), class: "glyphicon glyphicon-edit" %>
+    <%= link_to t(".delete"), admin_subpitch_type_path(subpitch_type), method: :delete, data: {confirm: t(".confirm")}, class: "glyphicon glyphicon-trash" %>
+  </td>
+</tr>

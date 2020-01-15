@@ -1,0 +1,80 @@
+<% provide :title, t(".sign_up") %>
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container user">
+    <div class="row fullscreen align-items-center justify-content-between">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 m-top150 form">
+        <h1><%= t ".edit" %></h1>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :full_name %><br />
+            <%= f.text_field :full_name, autocomplete: "name" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %> <i><%= t ".notify_pass" %></i><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <%= f.label :wallet %>
+          <%= f.number_field :wallet, class: "form-control", disabled: true %>
+
+          <div class="form-check-inline">
+            <%= f.label :gender, class: "form-check-label" do %>
+              <%= f.label :male %>
+              <%= f.radio_button :gender, 1, checked: @user.gender, class: "form-check-input" %>
+            <% end %>
+          </div>
+
+          <div class="form-check-inline">
+            <%= f.label :gender, class: "form-check-label" do %>
+              <%= f.label :female %>
+              <%= f.radio_button :gender, 0, checked: !@user.gender, class: "form-check-input" %>
+            <% end %>
+          </div>
+
+          <br>
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: "form-control" %>
+
+          <div class="field">
+            <%= f.label :current_password %> <i><%= t ".notify_current_pass"%></i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit t("generate.update") %>
+          </div>
+        <% end %>
+
+        <h3><%= t ".cancel_account" %></h3>
+
+        <p><%= t "generate.unhappy" %> <%= button_to t("generate.cancel_account"), registration_path(resource_name), data: {confirm: t("generate.confirm")}, method: :delete %></p>
+
+        <%= link_to t("generate.back"), :back %>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</section>

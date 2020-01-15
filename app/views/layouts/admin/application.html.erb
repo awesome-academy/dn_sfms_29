@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield(:title) %></title>
+    <%= render "layouts/rails_default" %>
+  </head>
+  <body>
+    <%= render "layouts/admin/sidebar" %>
+    <div class = "c-wrapper">
+      <%= render "layouts/admin/header" %>
+      <div class = "c-body" id = "admin">
+        <div class = "container-fluid">
+          <div class = "card">
+            <% flash.each do |message_type, message| %>
+              <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <%= render "layouts/admin/footer" %>
+    </div>
+  </body>
+</html>

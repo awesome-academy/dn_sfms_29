@@ -1,0 +1,44 @@
+<div>
+  <%= form_for @pitch, url: path do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class = "left col-sm-6">
+      <%= f.label :name %> <%= render "shared/asterisk" %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label :country %> <%= render "shared/asterisk" %>
+      <% country = [{id: t(".vi"), name: t(".vi")}, {id: t(".en"), name: t(".en")}] %>
+
+      <%= f.select :country, options_for_select(country.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}, selected: params[:locale]), {}, {class: "btn btn-info dropdown-toggle"} %>
+
+      <%= f.label :city %> <%= render "shared/asterisk" %>
+      <%= f.text_field :city, class: "form-control" %>
+
+      <%= f.label :district %> <%= render "shared/asterisk" %>
+      <%= f.text_field :district, class: "form-control" %>
+      <br/>
+    </div>
+    <div class = "right col-sm-6">
+      <%= f.label :address %> <%= render "shared/asterisk" %>
+      <%= f.text_field :address, class: "form-control" %>
+
+      <%= f.label :picture %>
+      <%= f.file_field :picture, class: "form-control" %>
+
+      <%= f.label :phone %> <%= render "shared/asterisk" %>
+      <div><%= f.text_field :phone, class: "form-control" %></div>
+
+      <%= f.label :start_time %> <%= render "shared/asterisk" %>
+      <div id="start_time"><%= f.time_select :start_time, class: "form-control" %></div>
+
+      <%= f.label :end_time %> <%= render "shared/asterisk" %>
+      <div id="end_time"><%= f.time_select :end_time, class: "form-control" %></div>
+
+      <%= f.label :limit %> <%= render "shared/asterisk" %>
+      <%= f.number_field :limit, class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

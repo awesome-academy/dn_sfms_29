@@ -1,0 +1,41 @@
+comment_length_max: 150
+name_in_users_max: 50
+email_in_users_max: 50
+password_min: 6
+timeout_reset_password: 2
+password_default: "1234567890"
+name_in_users_max: 50
+email_in_users_max: 255
+password_min: 6
+size_avatar_default: 80
+size_avatar: 100
+size_avatar_users_index: 50
+remember_value: "1"
+host: localhost:3000
+default_avatar_name: default_avatar
+timeout_reset_password: 2
+max_content_post: 140
+size_upload_picture: 5
+size_avatar_post: 50
+accept_file_upload: image/jpeg,image/gif,image/png
+size_avatar: [150, 150] # here is limit-top, limit-under is class
+per_page: 10
+avatar_default_path: app/assets/images/users/icon-user-default.png
+link_footer_admin: "https://coreui.io"
+default_avatar: "admin/coreui-base.svg"
+size:
+  s_12: 12
+  s255: 255
+  s100: 100
+  s97: 97
+  s50: 50
+  s46: 46
+  s10: 10
+  s12: 12
+  s6: 6
+  s2: 2
+  s1: 1
+  x100: '100x100'
+  pitch: '500x300'
+resizie_limit: [100, 100]
+time: "%H:%M"

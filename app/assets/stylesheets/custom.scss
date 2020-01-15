@@ -1,0 +1,456 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+@import 'linearicons';
+@import 'magnific-popup';
+@import 'main';
+@import 'nice-select';
+@import 'owl.carousel';
+@import 'animate.min';
+@import 'variables';
+@import 'font-awesome.min';
+@import 'social-share-button';
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* general */
+
+.pad-r10{
+  padding-right: 10px;
+}
+.mar5{
+  margin: 5px;
+}
+.hei14{
+  height: 14px;
+}
+.wid20{
+  width: 20px;
+}
+.cl-white{
+  color: $white;
+}
+.text-center{
+  text-align: center;
+}
+.pad0{
+  padding: 0px;
+}
+.auto{
+  margin: 0 auto;
+}
+.wid40{
+  width: 40% !important;
+}
+.wid30{
+  width: 30% !important;
+}
+.wid50{
+  width: 50% !important;
+}
+.wid60{
+  width: 60% !important;
+}
+.wid500p{
+  width: 500px;
+}
+.w150{
+  width: 150px !important;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.h14{
+  height: 14px;
+}
+.w20{
+  width: 20px;
+}
+.pad-top150{
+  padding-top: 150px;
+}
+.bg-white{
+  background-color: $white;
+}
+.bg-green{
+  background-color: $green-bg;
+}
+.cl-red{
+  color: $red;
+}
+.bg-green2{
+  background: $green;
+}
+.container2{
+  padding: 15px;
+  border-radius: 10px;
+}
+.wid30{
+  width: 30% !important;
+}
+.m-w200{
+  max-width: 200px;
+}
+.m-h200{
+  max-height: 200px;
+}
+.m-h500{
+  max-height: 500px;
+}
+.m-w500{
+  max-width: 500px;
+}
+.m-wid200{
+  max-width: 200px;
+}
+.m-hei200{
+  max-height: 200px;
+}
+.auto{
+  margin: 0 auto;
+}
+.w500{
+  width: 500px;
+}
+.wid50{
+  width: 50%;
+}
+.wid50{
+  width: 50%;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.pad0{
+  padding: 0px;
+}
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* PAGINATION */
+.pagination {
+  margin: 0 auto;
+}
+
+/* general */
+
+.m-w100{
+  max-width: 100px;
+}
+.m-h100{
+  max-height: 100px;
+}
+.wid30{
+  width: 30% !important;
+}
+
+.h14{
+  height: 14px;
+}
+.w20{
+  width: 20px;
+}
+.mar0{
+  margin: 0px;
+}
+.w30{
+  width: 30px;
+}
+.w97{
+  width: 97px;
+}
+.h46{
+  height: 46px;
+}
+.wid30{
+  width: 30% !important;
+}
+.cl-white{
+  color: $white;
+}
+.text-center{
+  text-align: center;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.mar-b15{
+  margin-bottom: 15px;
+}
+.m-w350{
+  max-width: 350px;
+}
+.h100{
+  heigth: 100px;
+}
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* subpitch_user */
+
+#subpitch_user{
+  display: table;
+  width: 100%;
+  padding-top: 150px;
+}
+
+#show_subpitch{
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+
+  div{
+    margin: 0 auto;
+    text-align: center;
+    float: none;
+  }
+
+  .card{
+    margin-bottom: 15px;
+  }
+}
+
+/* universal */
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.p-top-150px {
+  padding-top: 150px;
+}
+
+.p-bot-150px {
+  padding-bottom: 150px;
+}
+
+.size_avatar {
+  min-height: 150px;
+  min-width: 150px;
+}
+
+body>.alert{
+  position: absolute;
+    top: 105px;
+    z-index: 100000;
+    width: 100%;
+}
+.edit_profile{
+  h1{
+    color: $white
+  }
+}
+.user_info h1 {
+  color: $white;
+}
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* sidebar */
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* forms */
+.login_form{
+  p, h1 {
+    color: $white;
+  }
+}
+
+.password_reset_form {
+  h1 {
+    color: $white;
+  }
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid $bark_cloud;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: $red;
+  background: $bg-error;
+  padding: 10px;
+  border-radius: 7px;
+  ul {
+    color: $red;
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error !optional;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* select time */
+#pitch_start_time_5i, #pitch_end_time_5i{
+  float: left;
+  margin-left: 10px;
+}
+
+#pitch_start_time_4i, #pitch_end_time_4i {
+  float: left;
+}
+
+/* like subpitch */
+
+.like_subpitch{
+  width: 25%;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 5px;
+}

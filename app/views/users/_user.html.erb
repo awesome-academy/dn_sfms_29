@@ -1,0 +1,23 @@
+<tr>
+  <td><%= user.email %></td>
+  <td><%= user.full_name %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.phone %></td>
+  <td>
+    <%= user.confirmed_at.present? ? t("active") : t("inactive") %>
+  </td>
+  <td><%= user.wallet %></td>
+  <td>
+    <% if can? :update, user %>
+      <%= link_to t(".edit"), edit_user_registration_path(request: "admin"), class: "btn btn-primary" %>
+    <% end %>
+    <% if !current_user?(user) && can?(:update, current_user) %>
+      <%= form_with url: admin_user_roles_path(user) do |f| %>
+      <%= select_tag "user[role]", options_for_select(role.collect{|u| [t(u[:name]), u[:id]]}, selected: User.roles[user.role]), onchange: "this.form.submit()", class: "btn btn-info dropdown-toggle", data: {confirm: t("msg.confirm")} %>
+      <% end %>
+      <% if can? :destroy, current_user %>
+        <%= link_to t(".delete"), user, class: "btn btn-danger", method: :delete, data: {confirm: t("msg.confirm")} %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

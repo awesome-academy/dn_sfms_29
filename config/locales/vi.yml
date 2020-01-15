@@ -1,0 +1,532 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        full_name: Tên
+        email: Email
+        password: Mật khẩu
+        password_confirmation: Xác nhận mật khẩu
+        phone: Số điện thoại
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: không thể để trắng
+            phone:
+              invalid: chỉ bao gồm số và phải từ 10 kí tự trở lên
+        pitch:
+          attributes:
+            end_time:
+              after: "phải lớn hơn giờ bắt đầu."
+  helpers:
+    label:
+      pitch:
+        name: "Tên"
+        description: "Mô tả"
+        country: "quốc gia"
+        city: "Thành phố"
+        district: "Quận huyện"
+        address: "Địa chỉ"
+        picture: "Hình ahr"
+        start_time: "Giờ bắt đầu"
+        end_time: "Giờ kết thúc"
+        limit: "Giới hạn giờ"
+      user:
+        name: Tên
+        email: Email
+        password: Mật khẩu
+        password_confirmation: Xác nhận mật khẩu
+        phone: Số điện thoại
+        male: Nam
+        female: Nữ
+      session:
+        email: Email
+        password: Mật khẩu
+      subpitch_type:
+        name: "Tên loại sân bóng"
+        Description: "Mô tả"
+      subpitch:
+        name: "Tên sân nhỏ"
+        desription: "Mô tả"
+        status: "Trạng thái"
+        pitch: "Sân bóng"
+        pitch_id: "Sân bóng"
+        price_per_hour: "Giá một giờ"
+        currency: "Tiền tệ"
+        picture: "Hình ảnh"
+        size: "Kích cỡ"
+        subpitch_type: "Loại sân"
+        subpitch_type_id: "Loại sân"
+    submit:
+      user:
+        create: Tạo tài khoản
+        update: Lưu thay đổi
+      session:
+        submit: Đăng nhập
+      password_reset:
+        submit: Tiếp tục
+      pitch:
+        search_pitch: "Tìm kiếm sân"
+        create: "Tạo sân bóng"
+        update: "Cập nhật sân bóng"
+      subpitch_type:
+        create: "Tạo loại sân bóng"
+      subpitch:
+        create: "Tạo sân nhỏ"
+        update: "Cập nhật sân nhỏ"
+  shared:
+    error_messages:
+      count:
+        one: "1 error"
+        other: "%{count} errors"
+  layouts:
+    admin:
+      sidebar:
+        home: "Trang chủ"
+        new: "MỚI"
+        manage: "Quản lý"
+        link1: "Link1"
+        link2: "Link2"
+        pitch: "Sân bóng"
+        review: "Review"
+        subpitch_type: "Loại sân"
+      header:
+        Admin: "Admin"
+        home: "Trang chủ"
+        users: "Người dùng"
+        settings: "Thiết lập"
+        vn: "Tiếng việt"
+        en: "Tiếng anh"
+        profile: "Thông tin"
+        lock: "Khóa tài khoản"
+        logout: "Đăng xuất"
+        hello: "Xin chào: "
+        manage: "Quản lý"
+      footer:
+        link: "CoreUI"
+        content1_html: "&copy; 2019 creativeLabs."
+        content2_html: "Powered by&nbsp;"
+    application:
+      title: "Đặt lịch sân bóng đá nhanh chóng"
+    header:
+      login: "Đăng nhập"
+      register: "Đăng ký"
+      lang_vi: "Việt Nam"
+      lang_en: "Tiếng Anh"
+      home: "Trang chủ"
+      about: "Giới thiệu"
+      blog: "Blog"
+      contact: "Liên hệ"
+      language: "Ngôn ngữ"
+      english: "Tiếng Anh"
+      connect_facebook: Đăng nhập qua Facebook
+      log_in: Đăng nhập
+      profile: Hồ sơ
+      setting: Cài đặt
+      logout: Đăng xuất
+    right_sidebar:
+      pitch: "Sân bóng"
+      search_pitch: "Tìm kiếm sân"
+    left_sidebar:
+      passion: "Niềm đam mê bóng đá"
+      get_started: "Bắt đầu đặt"
+      content1: "Nếu bạn không thực sự biết sân phù hợp cho bạn và đồng đội của bạn, hãy đến với chúng tôi!"
+      get_started: "Bắt đầu"
+    footer:
+      about: "Giới thiệu"
+      content1: "Bóng đá là môn thể thao đồng đội được chơi giữa hai đội với nhau, mỗi đội có 11 cầu thủ trên sân. Trò chơi này dùng một quả bóng và thường được chơi trên sân cỏ hình chữ nhật với hai khung thành ở hai đầu sân."
+      news: "Bản tin"
+      content2: "Hàng triệu người đến sân vận động để xem các trận thi đấu có đội bóng mà họ yêu thích, và hàng triệu người khác theo dõi qua tivi nếu không thể đến sân vận động."
+  static_pages:
+    home:
+      home: Trang chủ
+      soccer_update: "Sân bóng đá được cập nhật mới nhất"
+      address: "Địa chỉ: "
+      pitch: "Sân bóng"
+      soccer_update: "Sân bóng đá được cập nhật mới nhất"
+      rss_feed: "rss feed"
+      name: "Sân bóng"
+      description: "Sân có rộng, có 3 sân mini, mỗi sân dành từ 5-7 người."
+    about:
+      about: "Giới thiệu"
+      text_html: "Bóng đá hay Túc cầu (tiếng Anh-Anh: Football, tiếng Anh-Mỹ: Soccer) là môn thể thao đồng đội được chơi giữa hai đội với nhau."
+    blog:
+      blog: "Bloger"
+      text1: "Bóng đá hay Túc cầu (tiếng Anh-Anh: Football, tiếng Anh-Mỹ: Soccer) là môn thể thao đồng đội được chơi giữa hai đội với nhau."
+    contact:
+      contact: "Liên hệ"
+      text1: "Bóng đá hay Túc cầu (tiếng Anh-Anh: Football, tiếng Anh-Mỹ: Soccer) là môn thể thao đồng đội được chơi giữa hai đội với nhau."
+  user:
+    success: "Thành công!"
+    danger: "Thất bại!"
+  pitches:
+    search_soccer:
+      address: "Địa chỉ: "
+    view_soccer:
+      address: "Address: "
+    index:
+      notification: "Không có sân bóng nào hợp lệ!"
+  admin:
+    pitches:
+      new:
+        title: Thêm sân mới
+      form:
+        vi: "VietNam"
+        en: "EngLish"
+      danger_load: "Tải thất bại"
+      create:
+        success: "Tạo thành công"
+        danger: "Tạo thất bại"
+      update:
+        success: "Cập nhật thành công"
+        danger: "Cập nhật thất bại"
+      destroy:
+        success: "Xóa thành công"
+        danger: "Xóa thất bại."
+      show:
+        title: "Sân bóng %{add}"
+        owner: "Chủ sở hữu: %{add}"
+        name: "Tên: %{add}"
+        description: "Mô tả: %{add}"
+        country: "Quốc gia: %{add}"
+        city: "Thành phố: %{add}"
+        start_time: "Giờ bắt đầu: %{add}"
+        end_time: "Giờ kết thúc: %{add}"
+        edit: "Chỉnh sửa"
+        back: "Trở về"
+        new_subpitch: "Tạo mới sân nhỏ"
+      index:
+        search: "Tìm kiếm"
+        new: "Tạo mới sân bóng"
+        title: "Danh sách sân bóng"
+        id: "#"
+        user: "Người dùng"
+        name: "Tên sân bóng"
+        description: "Mô tả"
+        country: "Quốc gia"
+        city: "Thành phố"
+        district: "Quận huyện"
+        picture: "Hình ảnh"
+        start_time: "Giờ bắt đầu"
+        end_time: "Giờ kết thúc"
+        option: "Tùy chọn"
+      pitch:
+        subpitch: "Sân nhỏ"
+        edit: "Chỉnh sửa"
+        delete: "Xóa"
+        confirm: "Bạn chắc chứ?"
+        subpitch: "Sân nhỏ"
+      revenues:
+        index:
+          title: "Doanh thu sân bóng"
+          id: "#"
+          user: "Chủ sân"
+          name: "Tên sân bóng"
+          description: "Mô tả"
+          country: "Quốc gia"
+          city: "Thành phố"
+          district: "Quận/Huyện"
+          phone: "Điện thoại"
+          picture: "Hình ảnh"
+          start_time: "Giờ mở cửa"
+          end_time: "Giờ đóng cửa"
+          limit: "Limit"
+          total: "Tổng"
+          option: "Tùy chọn"
+        revenue:
+          subpitch: "Sân nhỏ"
+        show:
+          asc: "asc"
+          desc: "desc"
+          asc_total: "Tổng tiền tăng dần"
+          desc_total: "Tổng tiền giảm dầm"
+          new: "Tạo mới"
+          title: "Chi tiết doanh thu"
+          id: "#"
+          pitch_name: "Tên sân bóng"
+          subpitch_type: "Loại sân bóng"
+          name: "Tên sân nhỏ"
+          description: "Mô tả"
+          price: "Giá"
+          currency: "Tiền tệ"
+          picture: "Hình ảnh"
+          size: "Kích cỡ"
+          option: "Tùy chọn"
+          total: "Tổng tiền"
+      subpitches:
+        danger_load: "Tải thất bại"
+        show:
+          pitch_name_html: "Tên sân bóng: <b>%{add}</b>"
+          name_html: "Tên sân nhỏ: <b>%{add}</b>"
+          price_html: "Giá một giờ: <b>%{add}</b>"
+          currency_html: "Tiền tệ: <b>%{add}</b>"
+          desc_html: "Mô tả: <b>%{add}</b>"
+          subpitch_type_html: "Loại sân nhỏ: <b>%{add}</b>"
+          size_html: "Kích cỡ: <b>%{add}</b>"
+        create:
+          success: "Tạo thành công"
+          danger: "Tạo thất bại"
+        update:
+          success: "Cập nhật thành công"
+          danger: "Cập nhật thất bại"
+        destroy:
+          success: "Xóa thành công"
+          danger: "Xóa thất bại"
+        new:
+          title: "Tạo sân nhỏ"
+        edit:
+          title: "Chỉnh sửa sân nhỏ"
+        index:
+          new: "Tạo mới"
+          title: "Danh sách sân nhỏ"
+          id: "#"
+          pitch_name: "Tên sân bóng"
+          subpitch_type: "Loại sân bóng"
+          name: "Tên sân nhỏ"
+          description: "Mô tả"
+          price: "Giá"
+          currency: "Tiền tệ"
+          picture: "Hình ảnh"
+          size: "Kích cỡ"
+          option: "Tùy chọn"
+        subpitch:
+          edit: "Chỉnh sửa"
+          delete: "Xóa"
+          confirm: "Bạn chắc chứ?"
+    subpitches:
+      ratings:
+        index:
+          title: "Danh sách đánh giá"
+          subpitch: Sân nhỏ
+          id: "#"
+          user: "Người dùng"
+          star: "Sao"
+          content: "Nội dung"
+          option: "Tùy chọn"
+        show:
+          title: "Danh sách đánh giá"
+          subpitch: Sân nhỏ
+          id: "#"
+          user: "Người dùng"
+          star: "Sao"
+          content: "Nội dung"
+          option: "Tùy chọn"
+    pages:
+      home:
+        title: "Trang chủ admin"
+    subpitch_types:
+      show:
+        title: "Thông tin loại sân bóng"
+      index:
+        title: "Danh sách loại sân bóng"
+        add: "Thêm"
+      edit:
+        title: "Chỉnh sửa loại sân bóng"
+      new:
+        title: "Tạo mới loại sân bóng"
+      create:
+        success: "Tạo thành công!"
+        danger: "Tạo thất bại!"
+      destroy:
+        success: "Xóa thành công!"
+        danger: "Xóa thất bại!"
+      update:
+        success: "Cập nhật thành công!"
+        danger: "Cập nhật thất bại"
+      subpitch_type:
+        edit: "Chỉnh sửa"
+        delete: "Xóa"
+        confirm: "Bạn chắc chứ?"
+        rating: "Đánh giá"
+      ratings:
+        index:
+          id: "#"
+          user: "user"
+          star: "star"
+          content: "content"
+          option: "option"
+  users:
+    id_unexist: ID không tồn tại!
+    please_log_in: Vui lòng đăng nhập
+    not_allow: Bạn không được phép
+    new:
+      update: "Cập nhật"
+      text1: "Đăng ký"
+      sign_up: Đăng kí
+      title: "Đặt lịch sân bóng đá nhanh chóng"
+    create:
+      please_check_mail: Vui lòng kiểm tra email của bạn để kích hoạt tài
+        khoản của bạn.
+    update:
+      profile_updated: Hồ sơ đã được cập nhật
+    edit:
+      edit_user: Chỉnh sửa người dùng
+      update_your_profile: Cập nhật hồ sơ của bạn
+    show:
+      name: Tên
+      gender: Giới tính
+      email: Email
+      phone: Số điện thoại
+      your_profile: Thông tin cá nhân
+      male: Nam
+      female: Nữ
+      title: "Đặt lịch sân bóng đá nhanh chóng"
+    index:
+      title: "Danh sách người dùng"
+      id: "#"
+      avatar: "Ảnh đại diện"
+      email: "email"
+      full_name: "Họ tên"
+      gender: "Giới tính"
+      phone: "Điện thoại"
+      activated: "Trạng thái"
+      option: "Tùy chọn"
+      search: "Tìm kiếm"
+    user:
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+  account_activations:
+    edit:
+      account_activated: Tài khoản đã kích hoạt thành công!
+      invalid_activation_link: Link kích hoạt không hợp lệ!
+  sessions:
+    new:
+      sign_up: Đăng kí ngay!
+      log_in: Đăng nhập
+      new_user: "Chưa có tài khoản ? "
+      remember_text: Duy trì trạng thái đăng nhập
+      forgot_password: (Quên mật khẩu)
+    create:
+      invalid_credentials: Email hoặc mật khẩu không đúng!
+      check_your_email: Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email
+        để kích hoạt tài khoản của bạn.
+  password_resets:
+    create:
+      notice_sent_reset_password_instructions: Một email đã được gửi đến địa
+        chỉ email của bạn, chứa hướng dẫn đặt lại mật khẩu
+      email_address_not_found: Địa chỉ email chưa được đăng kí!
+      cant_reset_password: Tài khoản này chưa được kích hoạt nên không thể
+        thiết lập lại mật khẩu!
+    update:
+      cant_be_empty: Không được trống
+      password_has_been_reset: Mật khẩu đã được đặt lại.
+    edit:
+      password_reset_has_expired: Thời gian đặt lại mật khẩu đã hết hạn.
+      reset_password: Thiết lập lại mật khẩu
+      email_address_not_found: Không tìm thấy email
+    new:
+      forgot_password: Quên mật khẩu
+    email_address_not_found: Địa chỉ email chưa được đăng kí!
+  user_mailer:
+    account_activation_subject: Kích hoạt tài khoản
+    account_activation:
+      h1: Sample App
+      greeting: Chào
+      content_mail: "Chào mừng đến với Book Soccer! Nhấn vào link dưới để kích
+        hoạt tài khoản của bạn: "
+      activate: Kích hoạt
+    password_reset_subject: Thiết lập mật khẩu
+    password_reset:
+      h1: Thiết lập mật khẩu
+      p1_password_reset: "Để đặt lại mật khẩu của bạn hãy click vào link dưới: "
+      reset_password: Đặt lại mật khẩu
+      p2_password_reset: Link này hết hạn trong 2 giờ.
+      p3_password_reset: Nếu bạn không yêu cầu đặt lại mật khẩu hãy bỏ qua
+        email này, mật khẩu của bạn không thay đổi.
+  oversize_upload_picture: nên nhỏ hơn 5MB
+  oversize_upload: Dung lượng tệp tải lên tối đa 5MB. Vui lòng chọn tệp nhỏ hơn
+  not_allow: Bạn không được phép
+  subpitches:
+    danger_load: "Tải thất bại"
+    danger_load_subpitch: "Tải thất bại sân nhỏ"
+    show:
+      name: "Tên: %{add}"
+      price_per_hour: "Giá mỗi giờ: %{add}"
+      currency: "Tiền tệ: %{add}"
+      size: "Kích cỡ: %{add}"
+      subpitch_type: "Loại sân: %{add}"
+      desc: "Mô tả: %{add}"
+      content: "Bình luận ở đây"
+      comment: "Bình luận"
+    subpitch:
+      name: "Tên: %{add}"
+      price_per_hour: "Giá mỗi giờ: %{add}"
+      currency: "Tiền tệ: %{add}"
+      size: "Kích cỡ: %{add}"
+      subpitch_type: "Loại sân: %{add}"
+      desc: "Mô tả: %{add}"
+    likes:
+      count:
+        like: "Like(%{add})"
+  msg:
+    destroy_success: "Xóa thành công"
+    destroy_danger: "Xóa thất bại"
+    create_success: "Tạo thành công"
+    create_danger: "Tạo thất bại"
+    update_success: "Cập nhật thành công"
+    update_danger: "Cập nhật thất bại"
+    danger_permision: "Người dùng không có quyền"
+    confirm: "Bạn chắc chứ?"
+    login: "Hãy đăng nhập"
+    not_subpitch: "Không có sân nhỏ"
+    not_pitch: "Không có sân lớn"
+    play_time_invalid: "Giờ mở cửa không hợp lệ"
+    pitch_not_exists: "Sân bóng không tồn tại"
+    danger_permission: "Lỗi phân quyền"
+    destroy_danger: "Xóa lỗi"
+  generate:
+    page_title: "Sân bóng đá"
+    title: "Sân bóng đá"
+    female: "Nữ"
+    male: "Nam"
+    back: "Back"
+    asc: "asc"
+    desc: "desc"
+    asc_total: "Tổng tiền tăng dần"
+    desc_total: "Tổng tiền giảm dầm"
+  general:
+    edit: "Chỉnh sửa"
+    back: "Trở về"
+    search: "Search"
+    delete: "Delete"
+    confirm: "You sure?"
+  will_paginate:
+    previous_labels: "Trang trước"
+    next_label: "Trang sau"
+  bookings:
+    index:
+      title: "Danh sách đặt sân"
+      user_name: "Họ tên"
+      subpitch_name: "Sân nhỏ"
+      start_time: "Thời gian bắt đầu"
+      end_time: "Thời gian kết thúc"
+      message: "Tin nhắn"
+      status: "Trạng thái"
+      total_price: "Tổng tiền"
+      option: "Lựa chọn"
+    booking:
+      unverfile: "Chưa xác thực"
+      verifiled_unpay: "Đã xác thực và chưa thanh toán"
+      verifiled_paid: "Đã thanh toán và đã xác thực"
+      rating: "Đánh giá"
+  devise:
+    passwords:
+      edit:
+        reset_password: "Thiết lập lại mật khẩu"
+        change_pass: "Đổi mật khẩu"
+      new:
+        forgot_password: "Quên mật khẩu"
+    sessions:
+      new:
+        log_in: Đăng nhập
+    registrations:
+      edit:
+        sign_up: Chỉnh sửa thông tin
+        notify_pass: (bỏ trống nếu bạn không muốn thay đổi)
+        notify_current_pass: (chúng tôi cần mật khẩu hiện tại để xác thực thay đổi của bạn)
+        cancel_account: "HỦy bỏ tài khoản"
+    confirmations:
+      new:
+        sign_up: Đăng ký
+        resend_confirm: Gửi lại email xác thực

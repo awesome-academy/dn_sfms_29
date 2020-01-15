@@ -1,0 +1,28 @@
+<% provide :title, t(".home") %>
+
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row fullscreen align-items-center justify-content-between">
+      <%= render "layouts/left_sidebar" %>
+      <div class="col-lg-4 col-md-6 banner-right">
+        <%= render "layouts/right_sidebar" %>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="other-issue-area section-gap">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="menu-content pb-70 col-lg-9">
+        <div class="title text-center">
+          <h1 class="mb-10"><%= t ".soccer_update" %></h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: "pitches/view_soccer", collection: @pitches %>
+    </div>
+    <%= will_paginate @pitches %>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<%= form_for @user do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :full_name, class: "form-control" %>
+  <% if !@user.id %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  <% else %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control", disabled: true %>
+    <div class="form-check-inline">
+      <%= f.label :gender, class: "form-check-label" do %>
+        <%= f.label :male %>
+        <%= f.radio_button :gender, 1, checked: @user.gender, class: "form-check-input" %>
+      <% end %>
+    </div>
+    <div class="form-check-inline">
+      <%= f.label :gender, class: "form-check-label" do %>
+        <%= f.label :female %>
+        <%= f.radio_button :gender, 0, checked: !@user.gender, class: "form-check-input" %>
+      <% end %>
+    </div>
+    <br>
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
+  <% end %>
+  <% if !@user.provider %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  <% end %>
+  <br>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,27 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div>
+  <%= form_with url: admin_ratings_path, local: true, class: "input-group", method: "get" do |f| %>
+    <%= f.text_field :search, class: "form-control wid30 left", id: "input1-group2",value: params[:search] %>
+    <span class="input-group-prepend left ">
+      <%= f.button "", class: "btn btn-primary glyphicon glyphicon-search" %>
+    </span>
+  <% end %>
+</div>
+<hr class="mt-0">
+<table class = "table table-responsive-sm table-hover table-outline mb-0">
+  <thead class="thead-light">
+    <tr>
+      <th class = "text-center"><%= t ".user" %></th>
+      <th class = "text-center"><%= t ".subpitch" %></th>
+      <th class = "text-center"><%= t ".star" %></th>
+      <th class = "text-center"><%= t ".content" %></th>
+      <th class = "text-center"><%= t ".option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "rating", collection: @ratings %>
+  </tbody>
+</table>
+<hr class="mt-0">
+<%= will_paginate @ratings %>

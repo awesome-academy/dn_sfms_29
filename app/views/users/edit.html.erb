@@ -1,0 +1,22 @@
+<% provide :title, t(".edit_user") %>
+
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container user">
+    <div class="row fullscreen align-items-center justify-content-between
+      p-top-150px edit_profile">
+      <div class="col-md-3">
+        <div class="avatar_edit">
+          <%= image_tag @user.avatar.variant(resize_to_limit:
+            Settings.size_avatar),
+            class: "size_avatar gravatar" if @user.avatar.attached? %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1><%= t ".update_your_profile" %></h1>
+        <%= render "form" %>
+      </div>
+      <div calss="col-md-3"></div>
+    </div>
+  </div>
+</section>

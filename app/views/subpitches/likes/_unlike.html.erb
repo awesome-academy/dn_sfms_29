@@ -1,0 +1,6 @@
+<% (subpitch = @subpitch) if @subpitch.present? %>
+<%= form_for liked, url: pitch_subpitch_like_path(params[:pitch_id], subpitch.id, check_like(subpitch)), method: :delete, remote: true do |f| %>
+  <%= link_to "#", class: "btn btn-info btn-lg like_subpitch", onclick: "$('#edit_like_#{liked.id}').submit();" do %>
+    <span class="glyphicon glyphicon-thumbs-down"></span> <%= t ".unlike" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,29 @@
+<tr>
+  <td><%= booking.subpitch.pitch.name %></td>
+  <td><%= booking.subpitch.name %></td>
+  <td><%= booking.subpitch.pitch.address %></td>
+  <td><%= booking.start_time.strftime "%H:%M %d/%m/%y" %></td>
+  <td><%= booking.end_time.strftime "%H:%M %d/%m/%y" %></td>
+  <td>
+    <% if booking.cancel? %>
+      <%= t ".canceled" %>
+    <% elsif booking.start_time > Time.now %>
+      <% if booking.verifiled_paid? %>
+        <%= link_to t(".cancel"), booking_path(booking),
+          method: :patch, data: {confirm: t(".confirm")} %>
+      <% else %>
+        <%= link_to t(".payment"), new_booking_pay_path(booking) %>
+      <% end %>
+    <% elsif booking.verifiled_paid? %>
+      <%= link_to t(".list_review"), pitch_subpitch_path(booking.subpitch.pitch,
+        booking.subpitch) %>
+        <% if booking.rating %>
+          <%= link_to t(".rating"), edit_booking_rating_path(booking, booking.rating.id) %>
+        <% else %>
+          <%= link_to t(".rating"), new_booking_rating_path(booking) %>
+        <% end %>
+    <% else %>
+      <%= t ".canceled" %>
+    <% end %>
+  </td>
+</tr>

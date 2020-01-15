@@ -1,0 +1,18 @@
+<tr>
+  <td><%= pitch.user.full_name %></td>
+  <td><%= link_to pitch.name, admin_pitch_path(pitch) %></td>
+  <td><%= pitch.description %></td>
+  <td><%= pitch.country %></td>
+  <td><%= pitch.city %></td>
+  <td><%= pitch.district %></td>
+  <td><%= image_tag(pitch.picture, size: Settings.size.x100) if pitch.picture.attached? %></td>
+  <td><%= pitch.phone %></td>
+  <td><%= pitch.start_time.strftime("%H:%M")  if pitch.start_time
+   %></td>
+  <td><%= pitch.end_time.strftime("%H:%M") if pitch.end_time %></td>
+  <td><%= pitch.limit %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_pitch_path(pitch), class: "btn btn-primary" %>
+    <% current_user.admin? %>
+    <%= link_to t(".delete"), admin_pitch_path(pitch), method: :delete, class: "btn btn-danger", data: {confirm: t(".confirm")} %></td>
+</tr>

@@ -1,0 +1,33 @@
+<div class="col-md-6" style="float:left" id = "<%= "subpitch_#{subpitch.id}" %>">
+  <div class="card">
+    <%= link_to pitch_subpitch_path(@pitch, subpitch) do %>
+      <% if subpitch.picture.attached? %>
+        <div class="card-header bg-facebook content-center">
+          <%= image_tag subpitch.picture, style: "max-width: 350px; height: 100px;" %>
+        </div>
+      <% end %>
+      <div class="card-body row text-center">
+        <div class="col <%= "subpitch_#{subpitch.id}" %>">
+          <div class="text-uppercase text-muted small"><%= t ".name", add: subpitch.name %></div>
+          <div class="text-uppercase text-muted small"><%= t ".price_per_hour", add: subpitch.price_per_hour %></div>
+          <div class="text-uppercase text-muted small"><%= t ".size", add: subpitch.size %></div>
+          <% if user_signed_in? %>
+            <%= render partial: "subpitches/likes/count", locals: {subpitch: subpitch} %>
+            <% if check_like(subpitch).present? %>
+              <%= render partial: "subpitches/likes/unlike", locals: {subpitch: subpitch, liked: liked(check_like(subpitch))} %>
+            <% else %>
+              <%= render partial: "subpitches/likes/like", locals: {subpitch: subpitch} %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="c-vr"></div>
+        <div class="col">
+          <div class="text-uppercase text-muted small"><%= t ".desc", add: subpitch.description %></div>
+          <div class="text-uppercase text-muted small"><%= t ".subpitch_type", add: subpitch.subpitch_type.name %></div>
+          <%= link_to t(".show_schedule"), new_subpitch_booking_path(subpitch),
+            class: "btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

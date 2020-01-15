@@ -1,0 +1,39 @@
+<%= form_for @subpitch, url: path do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <br/>
+  <div>
+    <%= f.label :pitch %>
+    <%= f.select "pitch_id", options_for_select(@pitches.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}, selected: params[:pitch_id], class: ""), {}, {class: "btn btn-info dropdown-toggle"} %>
+  </div>
+  <br/>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <%= f.label :price_per_hour %>
+  <%= f.text_field :price_per_hour, class: "form-control" %>
+
+  <%= f.label :currency %>
+  <%= f.text_field :currency, class: "form-control" %>
+
+  <%= f.label :picture %>
+  <%= f.file_field :picture, class: "form-control" %>
+
+  <%= f.label :size %>
+  <%= f.text_field :size, class: "form-control" %>
+
+  <% if @subpitch_types %>
+    <br/>
+    <div>
+      <%= f.label :subpitch_type %>
+      <%= f.select "subpitch_type_id", options_for_select(@subpitch_types.collect{|u| [t(u[:name]), {class: "dropdown-menu show"}, u[:id]]}), {}, {class: "btn btn-info dropdown-toggle"} %>
+    </div>
+    <br/>
+  <% end %>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

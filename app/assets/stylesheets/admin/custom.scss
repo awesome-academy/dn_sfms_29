@@ -1,0 +1,62 @@
+@import '../variables';
+
+#admin {
+  label{
+    color: $gray;
+  }
+  select{
+    width: auto;
+  }
+  input[type=submit]{
+    width: 20%;
+  }
+  a{
+    font-size: 19px;
+  }
+  .box1{
+    min-height: 270px;
+    display: table;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    border: solid 1px $dadada;
+    margin: 15px 15px;
+    padding: 15px;
+  }
+  h3{
+    color: blue;
+  }
+  #pitch_country{
+    display: table;
+  }
+
+  .box2{
+    text-align: center;
+    box-shadow: 3px 2px 8px $grey;
+    border-radius: 40px;
+    background: $bbecd5;
+    margin: 20px 0px;
+  }
+
+  #new_recharge select{
+    display: table;
+  }
+  /* select time */
+  #start_time, #end_time{
+    width: 120px;
+  }
+  #pitch_start_time_4i, #pitch_end_time_4i{
+    margin: 0 10px;
+  }
+  #pitch_start_time_5i, #pitch_end_time_5i{
+    margin: 0;
+    float: right;
+  }
+
+  input[type='submit']{
+    text-align: center;
+    float: none;
+  }
+  span{
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,41 @@
+<footer class="footer-area section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6><%= t ".about" %></h6>
+          <p><%= t ".content1" %></p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6><%= t ".news" %></h6>
+          <p><%= t ".content2" %></p>
+          <div id="mc_embed_signup">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6">
+        <div id="map" style='width: 100%; height: 200px;'></div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 37.3333945,
+      "lng": -121.8806499,
+      "picture": {
+        "width":  32,
+        "height": 32
+      },
+      "infowindow": "SJSU"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

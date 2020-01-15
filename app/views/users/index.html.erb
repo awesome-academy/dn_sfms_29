@@ -1,0 +1,29 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div>
+  <%= search_form_for @search, url: admin_users_path, local: true, class: "input-group", method: "get" do |f| %>
+    <%= f.text_field :full_name_or_email_cont, class: "form-control", id: "input1-group2", style: "width: 30%; float: left" %>
+    <span class="input-group-prepend left ">
+      <%= f.button "", class: "btn btn-primary glyphicon glyphicon-search" %>
+    </span>
+  <% end %>
+</div>
+<hr class="mt-0">
+<table class = "table table-responsive-sm table-hover table-outline mb-0">
+  <thead class="thead-light">
+    <tr>
+      <th class = "text-center"><%= sort_link @search, :email, t(".email") %></th>
+      <th class = "text-center"><%= sort_link @search, :full_name, t(".full_name") %></th>
+      <th class = "text-center"><%= t ".gender" %></th>
+      <th class = "text-center"><%= t ".phone" %></th>
+      <th class = "text-center"><%= t ".activated" %></th>
+      <th class = "text-center"><%= t ".wallet" %></th>
+      <th class = "text-center"><%= t ".option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "users/user", collection: @users %>
+  </tbody>
+</table>
+<hr class="mt-0">
+<%= will_paginate @users %>

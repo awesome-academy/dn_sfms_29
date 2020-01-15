@@ -1,0 +1,7 @@
+<tr>
+  <td><%= rating.user_full_name %></td>
+  <td><%= rating.booking.subpitch.name %></td>
+  <td><%= rating.star %></td>
+  <td><%= rating.content %></td>
+  <td><%= link_to t("general.delete"), admin_rating_path(rating), method: :delete, data: {confirm: t("general.confirm")}, class: "glyphicon glyphicon-trash" %></td>
+</tr>
