@@ -1,0 +1,2 @@
+class LikeRating < ApplicationRecord
+end

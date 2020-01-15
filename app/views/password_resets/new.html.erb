@@ -1,0 +1,20 @@
+<% provide :title, t(".forgot_password") %>
+
+<section class="banner-area relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container user">
+    <div class="row fullscreen align-items-center
+      justify-content-between p-top-150px p-bot-150px">
+      <div calss="col-md-3"></div>
+      <div class="col-md-6 password_reset_form">
+        <h1><%= t ".forgot_password" %></h1>
+        <%= form_for :password_reset, url: password_resets_path do |f| %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div calss="col-md-3"></div>
+    </div>
+  </div>
+</section>

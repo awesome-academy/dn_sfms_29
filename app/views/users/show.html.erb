@@ -1,0 +1,56 @@
+<% provide :title, @user.full_name %>
+
+<section class="banner-area relative user">
+  <div class="overlay overlay-bg"></div>
+    <div class="row fullscreen align-items-center justify-content-between
+      p-top-150px edit_profile">
+      <div class="col-md-4">
+          <div class="avatar_edit">
+            <%= image_tag @user.avatar.variant(resize_to_limit:
+              Settings.size_avatar),
+              class: "size_avatar gravatar" if @user.avatar.attached? %>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <h1><%= t ".your_profile" %></h1>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".name" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><b><%= @user.full_name %></b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".gender" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><b><%= gender @user.gender %></b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".email" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><b><%= @user.email %></b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><%= t ".phone" %>: </label>
+                </div>
+                <div class="col-md-6">
+                  <p><b><%= @user.phone %></b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="col-md-3"></div>
+</section>

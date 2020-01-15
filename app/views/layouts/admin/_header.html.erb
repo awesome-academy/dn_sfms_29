@@ -1,0 +1,70 @@
+<header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+  <%= button_tag type: "button", "data-target" => "#sidebar",
+      "data-class" => "c-sidebar-minimized",
+      class: "c-header-toggler c-class-toggler d-lg-none mr-auto" do %>
+    <span class="c-header-toggler-icon"></span>
+  <% end %>
+  <%= link_to "#", class: "c-header-brand d-sm-none" do %>
+    <% link_image = (current_user.avatar.attached?) ? current_user.avatar : Settings.default_avatar %>
+    <%= image_tag link_image, class: "c-header-brand d-sm-none w97 h46" %>
+  <% end %>
+  <%= button_tag type: "button", "data-target" => "#sidebar",
+      "data-class" => "c-sidebar-lg-show",
+      class: "c-header-toggler c-class-toggler ml-3 d-md-down-none",
+      responsive: true do %>
+    <span class="c-header-toggler-icon"></span>
+  <% end %>
+  <ul class="c-header-nav d-md-down-none">
+    <li class="c-header-nav-item px-3">
+      <%= link_to t(".home"), admin_root_path, class: "c-header-nav-link" %>
+    </li>
+    <% if current_user.admin? %>
+      <li class="c-header-nav-item px-3">
+        <%= link_to t(".users"), admin_users_path, class: "c-header-nav-link" %>
+      </li>
+    <% end %>
+    <li class="c-header-nav-item px-3">
+      <%= link_to t(".settings"), edit_admin_user_path(current_user), class: "c-header-nav-link" %>
+    </li>
+  </ul>
+  <ul class="c-header-nav ml-auto mr-4">
+    <li class="c-header-nav-item d-md-down-none mx-2">
+      <%= link_to t(".vn"), "?locale=vi" %>
+      <%= link_to t(".en"), "?locale=en" %>
+    </li>
+    <li class="c-header-nav-item dropdown">
+      <%= link_to "#", class: "c-header-nav-link", "data-toggle" => "dropdown",
+          role: "button", "aria-haspopup" => "true",
+          "aria-expanded" => "false",
+          onclick: "dropdown()" do %>
+        <div class="c-avatar">
+          <%= image_tag "admin/avatars/6.jpg", class: "c-avatar-img" %>
+        </div>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-right pt-0">
+        <div class="dropdown-header bg-light py-2"><strong><%= t ".settings" %></strong></div>
+        <%= link_to admin_user_path(current_user), class: "dropdown-item" do %>
+          <svg class="c-icon mr-2">
+            <use xlink:href="/asset/images/admin/sprites/free.svg#cil-user"></use>
+          </svg> <%= t ".profile" %>
+        <% end %>
+        <%= link_to edit_admin_user_path(current_user), class: "dropdown-item" do %>
+          <svg class="c-icon mr-2">
+            <use xlink:href="/asset/images/admin/sprites/free.svg#cil-settings"></use>
+          </svg> <%= t ".settings" %>
+        <% end %>
+        <%= link_to logout_path, class: "dropdown-item" do %>
+          <svg class="c-icon mr-2">
+            <use xlink:href="/asset/images/admin/sprites/free.svg#cil-account-logout"></use>
+          </svg> <%= t ".logout" %>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+  <div class="c-subheader px-3">
+    <ol class="breadcrumb border-0 m-0">
+      <li class="breadcrumb-item"><%= t ".home" %></li>
+      <li class="breadcrumb-item"><%= t ".admin" %></li>
+    </ol>
+  </div>
+</header>

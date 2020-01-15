@@ -1,0 +1,40 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div>
+  <%= form_with url: "#", local: true, class: "input-group", method: "get" do |f| %>
+    <span class="input-group-prepend left">
+      <%= f.button "", class: "btn btn-primary" do %>
+        <svg class="c-icon" class="h14 w20">
+          <use xlink:href="/assets/admin/coreui/free-symbol-defs.svg#cui-magnifying-glass"></use>
+        </svg> <%= t ".search" %>
+      <% end %>
+    </span>
+    <%= f.text_field :search, class: "form-control wid30 left", id: "input1-group2", value: params[:search] %>
+    <%= select_tag "order", options_for_select(order.collect{|u| [t(u[:name]), u[:id]]}, selected: params[:order]), onchange: "this.form.submit()", class: "btn btn-info dropdown-toggle" %>
+  <% end %>
+</div>
+<hr class="mt-0">
+<table class = "table table-responsive-sm table-hover table-outline mb-0">
+  <thead class="thead-light">
+    <tr>
+      <th class = "text-center"><%= t ".user" %></th>
+      <th class = "text-center"><%= t ".name" %></th>
+      <th class = "text-center"><%= t ".description" %></th>
+      <th class = "text-center"><%= t ".country" %></th>
+      <th class = "text-center"><%= t ".city" %></th>
+      <th class = "text-center"><%= t ".district" %></th>
+      <th class = "text-center"><%= t ".picture" %></th>
+      <th class = "text-center"><%= t ".phone" %></th>
+      <th class = "text-center"><%= t ".start_time" %></th>
+      <th class = "text-center"><%= t ".end_time" %></th>
+      <th class = "text-center"><%= t ".limit" %></th>
+      <th class = "text-center"><%= t ".total" %></th>
+      <th class = "text-center"><%= t ".option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "revenue", collection: @revenues %>
+  </tbody>
+</table>
+<hr class="mt-0">
+<%= will_paginate @revenues %>

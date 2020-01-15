@@ -1,0 +1,10 @@
+<tr>
+  <td><%= revenue_detail.pitch.name %></td>
+  <td><%= revenue_detail.subpitch_type.name %></td>
+  <td><%= revenue_detail.name %></td>
+  <td><%= revenue_detail.description %></td>
+  <td><%= revenue_detail.total %></td>
+  <td><%= revenue_detail.currency %></td>
+  <td><%= image_tag revenue_detail.picture, class: "m-wid200 m-hei200" if revenue_detail.picture.attached? %></td>
+  <td><%= revenue_detail.size %></td>
+</tr>

@@ -1,0 +1,5 @@
+obj = $('<%= "#subpitch_#{@subpitch.id}" %>').find('.card').children('div');
+$('<%= "#edit_like_#{@liked.id}" %>').remove();
+obj.children('span').remove()
+obj.append('<%= j render(partial: "subpitches/likes/like", locals: {subpitch: @subpitch}) %>')
+obj.prepend('<%= j render(partial: "subpitches/likes/count", locals: {subpitch: @subpitch}) %>')

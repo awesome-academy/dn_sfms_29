@@ -1,0 +1,13 @@
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+  <form class="form-wrap">
+    <input type="text" class="form-control" name="name" placeholder="Country " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Country'">
+    <input type="text" class="form-control" name="to" placeholder="City " onfocus="this.placeholder = ''" onblur="this.placeholder = 'City '">
+    <input type="text" class="form-control date-picker" name="start" placeholder="District " onfocus="this.placeholder = ''" onblur="this.placeholder = 'District '">
+    <input type="text" class="form-control date-picker" name="return" placeholder="Address " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address '">
+    <input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Start time " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+    <input type="number" min="1" max="20" class="form-control" name="child" placeholder="End time " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+    <a href="#" class="primary-btn text-uppercase"><%= t(".search_pitch") %></a>
+  </form>
+  </div>
+</div>

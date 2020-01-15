@@ -1,0 +1,25 @@
+<div class = "col-sm-6 col-lg-12" class="pad0 auto w500">
+  <div class = "card-header content-center">
+    <%= image_tag @subpitch.picture, class: "m-w500 m-h500" if @subpitch.picture.attached? %>
+  </div>
+  <div class="card-body row text-center">
+    <div class = "col">
+      <div class = "text-value-xl"><%= t ".pitch_name_html", add: @subpitch.pitch_name %></div>
+      <div class = "text-value-xl"><%= t ".name_html", add: @subpitch.name %></div>
+      <div class = "text-value-xl"><%= t ".price_html", add: @subpitch.price_per_hour %></div>
+      <div class = "text-value-xl"><%= t ".currency_html", add: @subpitch.currency %></div>
+    </div>
+    <div class="c-vr"></div>
+    <div class = "col">
+      <div class = "text-value-xl"><%= t ".desc_html", add: @subpitch.description %></div>
+      <div class = "text-value-xl"><%= t ".subpitch_type_html", add: @subpitch.subpitch_type_name %></div>
+      <div class = "text-value-xl"><%= t ".size_html", add: @subpitch.size %></div>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="left wid50">
+    <%= link_to t("general.edit"), edit_admin_pitch_subpitch_path(@pitch, @subpitch) %> |
+    <%= link_to t("general.back"), admin_pitch_path(@pitch) %>
+  </div>
+</div>

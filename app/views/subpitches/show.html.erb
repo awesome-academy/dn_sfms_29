@@ -1,0 +1,27 @@
+<section class="banner-area relative" id="subpitch_user">
+  <div id="show_subpitch">
+    <div class="col-sm-6 col-lg-8">
+      <div class="card">
+        <% if @subpitch.picture.attached? %>
+          <div class="card-header bg-facebook content-center">
+            <%= image_tag @subpitch.picture, class: "m-w350 h100" %>
+          </div>
+        <% end %>
+        <div class="card-body row text-center">
+          <div class="col">
+            <div class="text-uppercase text-muted small"><%= t ".name", add: @subpitch.name %></div>
+            <div class="text-uppercase text-muted small"><%= t ".price_per_hour", add: @subpitch.price_per_hour %></div>
+            <div class="text-uppercase text-muted small"><%= t ".size", add: @subpitch.size %></div>
+          </div>
+          <div class="c-vr"></div>
+          <div class="col">
+            <div class="text-uppercase text-muted small"><%= t ".desc", add: @subpitch.description %></div>
+            <div class="text-uppercase text-muted small"><%= t ".subpitch_type", add: @subpitch.subpitch_type_name %></div>
+            <%= social_share_button_tag @subpitch.name %>
+          </div>
+        </div>
+      </div>
+      <%= render "shared/comment" %>
+    </div>
+  </div>
+</section>

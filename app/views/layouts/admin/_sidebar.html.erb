@@ -1,0 +1,38 @@
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+  <div class="c-sidebar-brand">
+    <%= image_tag "admin/coreui-base-white.svg" %>
+  </div>
+  <ul class="c-sidebar-nav">
+    <li class="c-sidebar-nav-item">
+      <%= link_to admin_root_path, class: "c-sidebar-nav-link" do %>
+        <svg class="c-sidebar-nav-icon"></svg><%= t ".home" %>
+        <span class="badge badge-info"><%= t ".new" %></span>
+      <% end %>
+    </li>
+    <li class="c-sidebar-nav-title"><%= t ".manage" %></li>
+    <li class="c-sidebar-nav-item">
+      <%= link_to admin_pitches_path, class: "c-sidebar-nav-link" do %>
+        <svg class="c-sidebar-nav-icon">
+        </svg> <%= t ".pitch" %>
+      <% end %>
+    </li>
+    <li class="c-sidebar-nav-item">
+      <%= link_to admin_ratings_path, class: "c-sidebar-nav-link" do %>
+        <svg class="c-sidebar-nav-icon"></svg><%= t ".review" %>
+      <% end %>
+    </li>
+    <% if current_user.admin? %>
+      <li class="c-sidebar-nav-item">
+        <%= link_to admin_subpitch_types_path, class: "c-sidebar-nav-link" do %>
+          <svg class="c-sidebar-nav-icon"></svg><%= t ".subpitch_type" %>
+        <% end %>
+      </li>
+    <% end %>
+    <li class="c-sidebar-nav-item">
+      <%= link_to revenue_admin_pitches_path, class: "c-sidebar-nav-link" do %>
+        <svg class="c-sidebar-nav-icon">
+        </svg> <%= t ".revenue" %>
+      <% end %>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,18 @@
+<tr>
+  <td><%= revenue.user.full_name %></td>
+  <td><%= revenue.name %></td>
+  <td><%= revenue.description %></td>
+  <td><%= revenue.country %></td>
+  <td><%= revenue.city %></td>
+  <td><%= revenue.district %></td>
+  <td><%= image_tag(revenue.picture, size: Settings.size.x100) if revenue.picture.attached? %></td>
+  <td><%= revenue.phone %></td>
+  <td><%= revenue.start_time.strftime(Settings.time)  if revenue.start_time
+   %></td>
+  <td><%= revenue.end_time.strftime(Settings.time) if revenue.end_time %></td>
+  <td><%= revenue.limit %></td>
+  <td><%= revenue.total %></td>
+  <td>
+    <%= link_to t(".subpitch"), revenue_admin_pitch_path(revenue) %>
+  </td>
+</tr>

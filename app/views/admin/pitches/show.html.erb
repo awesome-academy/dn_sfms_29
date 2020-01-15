@@ -1,0 +1,26 @@
+<% provide :title, t(".title", add: @pitch.name) %>
+<h1><%= t ".title", add: @pitch.name %></h1>
+<div>
+  <div class="left">
+    <%= image_tag(@pitch.picture, size: Settings.size.pitch, class: "left") if @pitch.picture.attached? %>
+  </div>
+  <div class="left mar-l20">
+    <p><% t ".owner", add:  @pitch.user.full_name %></p>
+    <hr class="mt-0">
+    <p><%= t ".description", add: @pitch.description %></p>
+    <p><%= t ".country", add: @pitch.country %></p>
+    <p><%= t ".city", add: @pitch.city %></p>
+    <p><%= t ".start_time", add: @pitch.start_time.strftime("%H:%M")  if @pitch.start_time %></p>
+    <p><%= t ".end_time", add: @pitch.end_time.strftime("%H:%M")  if @pitch.start_time %></p>
+  </div>
+</div>
+<div>
+  <div class="right wid50">
+    <%= link_to t(".edit"), edit_admin_pitch_path(@pitch) %> |
+    <%= link_to t("generate.back"), admin_pitches_path %>
+    <%= link_to t(".new_subpitch"), new_admin_pitch_subpitch_path(@pitch), class: "right" %>
+  </div>
+</div>
+<% if @subpitches %>
+  <%= render "admin/pitches/subpitches/index", collection: @subpitches %>
+<% end %>

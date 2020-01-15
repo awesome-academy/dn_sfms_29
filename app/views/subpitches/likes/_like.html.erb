@@ -1,0 +1,5 @@
+<%= form_for @like, url: pitch_subpitch_likes_path(params[:pitch_id], subpitch.id), remote: true, html: {id: "new_like_#{subpitch.id}"} do |f| %>
+  <%= link_to "#", class: "btn btn-info btn-lg like_subpitch", onclick: "$('#new_like_#{subpitch.id}').submit();" do %>
+    <span class="glyphicon glyphicon-thumbs-up"></span> <%= t ".like" %>
+  <% end %>
+<% end %>

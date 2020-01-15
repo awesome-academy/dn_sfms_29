@@ -1,0 +1,36 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div>
+  <div>
+    <%= form_with url: admin_pitch_path(@pitch), local: true, class: "input-group", method: "get" do |f| %>
+      <span class="input-group-prepend left">
+        <%= f.button "", class: "btn btn-primary" do %>
+          <svg class="c-icon" class="h14 w20">
+            <use xlink:href="/assets/admin/coreui/free-symbol-defs.svg#cui-magnifying-glass"></use>
+          </svg> <%= t ".search" %>
+        <% end %>
+      </span>
+      <%= f.text_field :search, class: "form-control wid30 left", id: "input1-group2", value: params[:search] %>
+    <% end %>
+  </div>
+</div>
+<hr class="mt-0">
+<table class = "table table-responsive-sm table-hover table-outline mb-0">
+  <thead class="thead-light">
+    <tr>
+      <th class = "text-center"><%= t ".subpitch_type" %></th>
+      <th class = "text-center"><%= t ".name" %></th>
+      <th class = "text-center"><%= t ".description" %></th>
+      <th class = "text-center"><%= t ".pirce" %></th>
+      <th class = "text-center"><%= t ".currency" %></th>
+      <th class = "text-center"><%= t ".picture" %></th>
+      <th class = "text-center"><%= t ".size" %></th>
+      <th class = "text-center"><%= t ".option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "admin/pitches/subpitches/subpitch", collection: @subpitches %>
+  </tbody>
+</table>
+<hr class="mt-0">
+<%= will_paginate @subpitches %>

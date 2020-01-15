@@ -1,0 +1,7 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %> </h1>
+<div>
+  <%= @subpitch_type.name %> <br/>
+  <%= @subpitch_type.description %>
+</div>
+<%= link_to t("msg.back"), admin_subpitch_types_path %>

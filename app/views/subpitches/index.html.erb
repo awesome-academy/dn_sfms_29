@@ -1,0 +1,10 @@
+<section class="banner-area relative" id="subpitch_user">
+  <h1 class="cl-white text-center"><%= @pitch.name %></h1>
+  <div>
+    <%= render partial: "subpitch", collection: @subpitches %>
+    <% if @subpitches.blank? %>
+      <br/>
+      <h2 class="cl-white text-center"><%= t "msg.not_subpitch"%> </h1>
+    <% end %>
+  </div>
+</section>

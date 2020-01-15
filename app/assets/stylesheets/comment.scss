@@ -1,0 +1,66 @@
+@import 'variables';
+
+.comment-outer{
+  background: $bg-outer-comment;
+  color: $black;
+  padding: 50px 100px;
+  textarea:focus{
+    outline: 0;
+  }
+  .comment-inner{
+    background: $bg-inner-comment;
+    padding: 0 50px 1px 50px;
+    h1{
+      padding: 20px 0 40px;
+    }
+  }
+  .link_profile{
+    color: $link_profile_comment;
+    font-weight: bold
+  }
+  
+  .new-comment{
+    float: left;
+    padding-right: 40px;
+    width: 170px;
+  }
+  
+  .content-comment{
+    display: block;
+    text-align: left!important;
+    .comments-rating{
+      margin: 0
+    }
+    .rating{
+      padding-left: 30px;
+      .fa-star{
+        color: $color_star;
+      }
+    }
+  }
+  
+  .form-comment{
+    padding: 0 30px;
+    display: none;
+    textarea{
+      resize:none;
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .submit{
+      display: block;
+      width: 100px;
+      margin: 5px auto;
+    }
+  }
+  .group-rating{
+    margin: 0 auto;
+    text-align: left!important;
+    float: none;
+    margin-bottom: 50px!important;
+  }
+  .comment{
+    margin-left: 30px;
+  }
+}

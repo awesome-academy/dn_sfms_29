@@ -1,0 +1,242 @@
+@import 'variables';
+
+/* general */
+
+.pad-r10{
+  padding-right: 10px;
+}
+.mar5{
+  margin: 5px;
+}
+.hei14{
+  height: 14px;
+}
+.wid20{
+  width: 20px;
+}
+.cl-white{
+  color: $white;
+}
+.text-center{
+  text-align: center;
+}
+.pad0{
+  padding: 0px;
+}
+.auto{
+  margin: 0 auto;
+}
+.wid40{
+  width: 40% !important;
+}
+.wid30{
+  width: 30% !important;
+}
+.wid50{
+  width: 50% !important;
+}
+.wid60{
+  width: 60% !important;
+}
+.wid500p{
+  width: 500px;
+}
+.w150{
+  width: 150px !important;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.h14{
+  height: 14px;
+}
+.w20{
+  width: 20px;
+}
+.pad-top150{
+  padding-top: 150px;
+}
+.bg-white{
+  background-color: $white;
+}
+.bg-green{
+  background-color: $green-bg;
+}
+.cl-red{
+  color: $red;
+}
+.bg-green2{
+  background: $green;
+}
+.container2{
+  padding: 15px;
+  border-radius: 10px;
+}
+.wid30{
+  width: 30% !important;
+}
+.m-w200{
+  max-width: 200px;
+}
+.m-h200{
+  max-height: 200px;
+}
+.m-h500{
+  max-height: 500px;
+}
+.m-w500{
+  max-width: 500px;
+}
+.m-wid200{
+  max-width: 200px;
+}
+.m-hei200{
+  max-height: 200px;
+}
+.auto{
+  margin: 0 auto;
+}
+.w500{
+  width: 500px;
+}
+.wid50{
+  width: 50%;
+}
+.wid50{
+  width: 50%;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.pad0{
+  padding: 0px;
+}
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* PAGINATION */
+.pagination {
+  margin: 0 auto;
+}
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.428571429;
+  color: $color_pagination;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $border_pagination;
+}
+/* general */
+
+.m-w100{
+  max-width: 100px;
+}
+.m-h100{
+  max-height: 100px;
+}
+.wid30{
+  width: 30% !important;
+}
+
+.h14{
+  height: 14px;
+}
+.w20{
+  width: 20px;
+}
+.mar0{
+  margin: 0px;
+}
+.w30{
+  width: 30px;
+}
+.w97{
+  width: 97px;
+}
+.h46{
+  height: 46px;
+}
+.wid30{
+  width: 30% !important;
+}
+.cl-white{
+  color: $white;
+}
+.text-center{
+  text-align: center;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.mar-b15{
+  margin-bottom: 15px;
+}
+.m-w350{
+  max-width: 350px;
+}
+.h100{
+  height: 100px;
+}
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* subpitch_user */
+
+#subpitch_user{
+  display: table;
+  width: 100%;
+  padding-top: 150px;
+}
+
+#show_subpitch{
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+
+  div{
+    margin: 0 auto;
+    text-align: center;
+    float: none;
+  }
+
+  .card{
+    margin-bottom: 15px;
+  }
+}
+
+.mar-l20{
+  margin-left: 20px;
+}
+
+/* select time */
+#pitch_start_time_5i, #pitch_end_time_5i{
+  float: left;
+  margin-left: 10px;
+}
+
+#pitch_start_time_4i, #pitch_end_time_4i {
+  float: left;
+}
+
+/* like subpitch */
+
+.like_subpitch{
+  width: 25%;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 5px;
+}

@@ -1,0 +1,13 @@
+<tr>
+  <td><%= subpitch.subpitch_type.name %></td>
+  <td><%= subpitch.name %></td>
+  <td><%= subpitch.description %></td>
+  <td><%= subpitch.price_per_hour %></td>
+  <td><%= subpitch.currency %></td>
+  <td><%= image_tag subpitch.picture, class: "m-w200 m-h200" if subpitch.picture.attached? %></td>
+  <td><%= subpitch.size %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_pitch_subpitch_path(subpitch.pitch.id, subpitch), class: "btn btn-primary" %>
+    <%= link_to t(".delete"), admin_pitch_subpitch_path(subpitch.pitch.id, subpitch), class: "btn btn-danger", method: :delete, data: {confirm: t(".confirm")} %>
+  </td>
+</tr>
